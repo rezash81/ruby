@@ -1,0 +1,65 @@
+<%= link_to "بازگشت", client_path(@client) %>
+<h2><%= @client.client_info ? @client.client_info.name : "#{t 'without'} #{t 'client_info'}" %></h2>
+<h3>اکسپورت استاندارد</h3>
+<div class="row">
+  <div class="col-sm-6">
+    <h4>اطلاعات <%= t 'client' %></h4>
+    <dl class="dl-horizontal">
+      <dt><%= t 'description' %></dt>
+      <dd><%= @client.client_info ? @client.client_info.description : '' %></dd>
+      <dt><%= raw(t('sampling_time')) %></dt>
+      <dd><%= @client.sampling_time %></dd>
+      <dt><%= raw(t('samples_count')) %></dt>
+      <dd><%= @client.sampling_time * @client.samples_count %></dd>
+      <dt><%= t 'model' %></dt>
+      <dd><%= @client.client_info ? @client.client_info.model_name : '' %></dd>
+      <dt><%= t 'serial' %></dt>
+      <dd><%= @client.client_info ? @client.client_info.serial_number : '' %></dd>
+      <dt><%= t 'last_data' %></dt>
+      <dd><%= @first_value ? persian_date(@first_value.sample_time) : 'بدون داده' %></dd>
+    </dl>
+  </div>
+  <br>
+  <br>
+  <div class="col-sm-6">
+    <% attachments = @client.attachments %>
+    <p class="lead"></p>
+    <%= link_to "گالری عکسها", attachments_client_path(@client) %>
+    <% if attachments.count > 0 %>
+      <div class="clearfix rslides_container">
+        <ul class="rslides" id="slider">
+          <% attachments.each do |attachment| %>
+            <li>
+              <%= link_to attachment.file.url(:original), target: '_blank' do %>
+                <%= image_tag attachment.file.url %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% else %>
+      <p class="lead"></p>
+    <% end %>
+  </div>
+  <div class="col-sm-12">
+    <form action="<%= export_standard_client_path(@client) %>" method="get" class="row clearfix">
+      <div class="form-horizontal col-sm-6">
+        <div class="form-group">
+          <label for="from" class="col-sm-2">از: </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control pcal" id="from" name="from" <%= "value=#{@from.to_s}" if @from %>>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="to" class="col-sm-2">تا: </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control pcal" id="to" name="to" <%= "value=#{@to.to_s}" if @to %>>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-default">دریافت</button>
+      </div>
+    </form>
+  </div>
+</div>

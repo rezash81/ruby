@@ -1,0 +1,33 @@
+<%= link_to "بازگشت", client_path(@client) %>
+<h2><%= @client.client_info ? @client.client_info.name : "#{t 'without'} #{t 'client_info'}" %></h2>
+<h3>ایمپورت از طریق USB</h3>
+<div class="row">
+
+  <div class="col-sm-6">
+    <p class="lead"></p>
+    <h4>اطلاعات <%= t 'client' %></h4>
+    <dl class="dl-horizontal">
+      <dt><%= t 'description' %></dt>
+      <dd><%= @client.client_info ? @client.client_info.description : '' %></dd>
+      <dt><%= raw(t('sampling_time')) %></dt>
+      <dd><%= @client.sampling_time %></dd>
+      <dt><%= raw(t('samples_count')) %></dt>
+      <dd><%= @client.sampling_time * @client.samples_count %></dd>
+      <dt><%= t 'model' %></dt>
+      <dd><%= @client.client_info ? @client.client_info.model_name : '' %></dd>
+      <dt><%= t 'serial' %></dt>
+      <dd><%= @client.client_info ? @client.client_info.serial_number : '' %></dd>
+    </dl>
+  </div>
+
+  <div class="col-sm-12">
+  <br><br>
+  <%= form_tag import_usb_client_path(@client), method: :post, multipart: true do %>
+    <div class="form-group">
+      <label for="files">فایل اطلاعات :</label>
+      <%= file_field_tag "file", type: :file %>
+    </div>
+    <button type="submit" class="btn btn-primary"><%= t 'submit' %></button>
+  <% end %>
+  </div>
+</div>

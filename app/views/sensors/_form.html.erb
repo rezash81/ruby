@@ -1,0 +1,149 @@
+<%= form_for @sensor, html: {class: 'form-horizontal'} do |f| %>
+  <div class="form-group<%= ' has-error has-feedback' if @sensor.errors[:name].length > 0 %>">
+    <%= f.label :name, t('name'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :name, class: "form-control", required: true %>
+      <% if @sensor.errors[:name].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @sensor.errors[:channel_index].length > 0 %>">
+    <%= f.label :channel_index, t('channel_index'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :channel_index, class: "form-control", required: true %>
+      <% if @sensor.errors[:channel_index].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @sensor.errors[:measure_unit].length > 0 %>">
+    <%= f.label :measure_unit, t('measure_unit'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :measure_unit, class: "form-control", required: true %>
+      <% if @sensor.errors[:measure_unit].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="form-group<%= ' has-error has-feedback' if @sensor.errors[:description].length > 0 %>">
+    <%= f.label :description, t('description'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_area :description, class: "form-control", style: 'resize:vertical;', rows: 6 %>
+      <% if @sensor.errors[:description].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @sensor.errors[:code].length > 0 %>">
+    <%= f.label :code, t('code'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :code, class: "form-control" %>
+      <% if @sensor.errors[:code].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @sensor.errors[:unit_code].length > 0 %>">
+    <%= f.label :unit_code, t('unit_code'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :unit_code, class: "form-control" %>
+      <% if @sensor.errors[:unit_code].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @sensor.errors[:unit_avb].length > 0 %>">
+    <%= f.label :unit_avb, t('unit_avb'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :unit_avb, class: "form-control" %>
+      <% if @sensor.errors[:unit_avb].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @sensor.errors[:saving_type].length > 0 %>">
+    <%= f.label :saving_type, t('saving_type'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :saving_type, class: "form-control" %>
+      <% if @sensor.errors[:saving_type].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @sensor.errors[:channel_type].length > 0 %>">
+    <%= f.label :channel_type, t('channel_type'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :channel_type, class: "form-control" %>
+      <% if @sensor.errors[:channel_type].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @sensor.errors[:hw_port_type].length > 0 %>">
+    <%= f.label :hw_port_type, t('hw_port_type'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :hw_port_type, class: "form-control" %>
+      <% if @sensor.errors[:hw_port_type].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @sensor.errors[:hw_port_number].length > 0 %>">
+    <%= f.label :hw_port_number, t('hw_port_number'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :hw_port_number, class: "form-control" %>
+      <% if @sensor.errors[:hw_port_number].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @sensor.errors[:hw_port_pin_number].length > 0 %>">
+    <%= f.label :hw_port_pin_number, t('hw_port_pin_number'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :hw_port_pin_number, class: "form-control" %>
+      <% if @sensor.errors[:hw_port_pin_number].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @sensor.errors[:calculation_type].length > 0 %>">
+    <%= f.label :calculation_type, t('calculation_type'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :calculation_type, class: "form-control" %>
+      <% if @sensor.errors[:calculation_type].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @sensor.errors[:is_active].length > 0 %>">
+    <div class="com-sm-4 col-sm-offset-2">
+      <div class="checkbox">
+        <%= f.label :is_active do %>
+          <%= f.check_box(:is_active) %> <%= t('is_active') %>
+        <% end %>
+      </div>
+    </div>
+    <% if @sensor.errors[:is_active].length > 0 %>
+    <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+    <% end %>
+  </div>
+
+  <div class="actions col-sm-offset-2">
+    <%= f.submit t('save'), class: 'btn btn-default' %>
+  </div>
+<% end %>

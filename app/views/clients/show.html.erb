@@ -1,0 +1,51 @@
+<h2><%= @client.client_info ? @client.client_info.name : "#{t 'without'} #{t 'client_info'}" %></h2>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= link_to "بازگشت", clients_path %>
+      <h4>اطلاعات <%= t 'client' %></h4>
+      <dl class="dl-horizontal">
+        <dt><%= t 'description' %></dt>
+        <dd><%= @client.client_info ? @client.client_info.description : '' %></dd>
+        <dt><%= raw(t('sampling_time')) %></dt>
+        <dd><%= @client.sampling_time %></dd>
+        <dt><%= raw(t('samples_count')) %></dt>
+        <dd><%= @client.sampling_time * @client.samples_count %></dd>
+        <dt><%= t 'model' %></dt>
+        <dd><%= @client.client_info ? @client.client_info.model_name : '' %></dd>
+        <dt><%= t 'serial' %></dt>
+        <dd><%= @client.client_info ? @client.client_info.serial_number : '' %></dd>
+        <dt><%= t 'last_data' %></dt>
+        <dd><%= @first_value ? persian_date(@first_value.sample_time) : 'بدون داده' %></dd>
+      </dl>
+      <br>
+      <br>
+      <%= link_to t('archive_data'), archive_data_client_path(@client), class: 'btn btn-link' %><br>
+      <%= link_to t('live'), live_client_path(@client), class: 'btn btn-link' %><br>
+      <%= link_to t('export'), export_client_path(@client), class: 'btn btn-link' %><br>
+      <%= link_to t('export_standard'), export_standard_client_path(@client), class: 'btn btn-link' %><br>
+      <% if can? :update, @client %>
+        <%= link_to t('import'), import_client_path(@client), class: 'btn btn-link' %><br>
+        <%= link_to t('import_usb'), import_usb_client_path(@client), class: 'btn btn-link' %><br>
+      <% end %>
+    </div>
+    <div class="col-sm-6">
+      <% attachments = @client.attachments %>
+      <p class="lead"></p>
+      <%= link_to "گالری عکسها", attachments_client_path(@client) %>
+      <% if attachments.count > 0 %>
+        <div class="clearfix rslides_container">
+          <ul class="rslides" id="slider">
+            <% attachments.each do |attachment| %>
+              <li>
+                <%= link_to attachment.file.url(:original), target: '_blank' do %>
+                  <%= image_tag attachment.file.url %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% else %>
+        <p class="lead"></p>
+      <% end %>
+    </div>
+  </div>

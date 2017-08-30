@@ -1,0 +1,35 @@
+<%= link_to "بازگشت", sensors_path %>
+<h4>اطلاعات <%= t 'sensor' %></h4>
+<dl class="dl-horizontal">
+  <dt><%= t 'name' %></dt>
+  <dd><%= @sensor.name %></dd><br>
+  <dt><%= t 'description' %></dt>
+  <dd><%= @sensor.description %></dd><br>
+  <dt><%= t 'channel_index' %></dt>
+  <dd><%= @sensor.channel_index %></dd><br>
+  <dt><%= t 'measure_unit' %></dt>
+  <dd><%= @sensor.measure_unit %></dd><br>
+  <dt><%= t 'code' %></dt>
+  <dd><%= @sensor.code %></dd><br>
+  <dt><%= t 'unit_code' %></dt>
+  <dd><%= @sensor.unit_code %></dd><br>
+  <dt><%= t 'unit_avb' %></dt>
+  <dd><%= @sensor.unit_avb %></dd><br>
+  <dt><%= t 'saving_type' %></dt>
+  <dd><%= @sensor.saving_type %></dd><br>
+  <dt><%= t 'channel_type' %></dt>
+  <dd><%= @sensor.channel_type %></dd><br>
+  <dt><%= t 'hw_port_type' %></dt>
+  <dd><%= @sensor.hw_port_type %></dd><br>
+  <dt><%= t 'hw_port_number' %></dt>
+  <dd><%= @sensor.hw_port_number %></dd><br>
+  <dt><%= t 'hw_port_pin_number' %></dt>
+  <dd><%= @sensor.hw_port_pin_number %></dd><br>
+  <dt><%= t 'calculation_type' %></dt>
+  <dd><%= @sensor.calculation_type %></dd><br>
+  <dt><%= t 'is_active' %></dt>
+  <dd><%= @sensor.is_active ? 'بلی' : 'خیر' %></dd><br>
+  <% if can? :update, @sensor %>
+    <%= link_to t('edit'), edit_sensor_path(@sensor), class: 'btn btn-default' %><br>
+  <% end %>
+</dl>

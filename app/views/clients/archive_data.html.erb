@@ -1,0 +1,116 @@
+<%= link_to "بازگشت", client_path(@client) %>
+<h2><%= @client.client_info ? @client.client_info.name : "#{t 'without'} #{t 'client_info'}" %></h2>
+<h3>آرشیو داده ها</h3>
+<br>
+<div class="row">
+  <div class="col-sm-6">
+    <h4>اطلاعات <%= t 'client' %></h4>
+    <dl class="dl-horizontal">
+      <dt><%= t 'description' %></dt>
+      <dd><%= @client.client_info ? @client.client_info.description : '' %></dd>
+      <dt><%= raw(t('sampling_time')) %></dt>
+      <dd><%= @client.sampling_time %></dd>
+      <dt><%= raw(t('samples_count')) %></dt>
+      <dd><%= @client.sampling_time * @client.samples_count %></dd>
+      <dt><%= t 'model' %></dt>
+      <dd><%= @client.client_info ? @client.client_info.model_name : '' %></dd>
+      <dt><%= t 'serial' %></dt>
+      <dd><%= @client.client_info ? @client.client_info.serial_number : '' %></dd>
+      <dt><%= t 'last_data' %></dt>
+      <dd><%= @first_value ? persian_date(@first_value.sample_time) : 'بدون داده' %></dd>
+    </dl>
+    <br>
+    <br>
+  </div>
+  <div class="col-sm-6">
+    <% attachments = @client.attachments %>
+    <p class="lead"></p>
+    <%= link_to "گالری عکسها", attachments_client_path(@client) %>
+    <% if attachments.count > 0 %>
+      <div class="clearfix rslides_container">
+        <ul class="rslides" id="slider">
+          <% attachments.each do |attachment| %>
+            <li>
+              <%= link_to attachment.file.url(:original), target: '_blank' do %>
+                <%= image_tag attachment.file.url %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% else %>
+      <p class="lead"></p>
+    <% end %>
+  </div>
+  <div class="col-sm-12">
+    <form action="<%= archive_data_client_path(@client) %>" method="get" class="row clearfix">
+      <div class="col-sm-6">
+        <div class="form-group fcheckbox">
+          <% @client.sensors.sort_by(&:channel_index).each do |sensor| %>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="channel[]" value="<%= sensor.channel_index %>" <%= "checked" if @sensors.include? sensor %>> <%= sensor.name %>
+              </label>
+            </div>
+          <% end %>
+        </div>
+
+        <button type="submit" class="btn btn-default">نمایش</button>
+      </div>
+
+      <div class="form-horizontal col-sm-6">
+        <div class="form-group">
+          <label for="from" class="col-sm-2">از: </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control pcal" id="from" name="from" <%= "value=#{@from.to_s}" if @from %>>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="to" class="col-sm-2">تا: </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control pcal" id="to" name="to" <%= "value=#{@to.to_s}" if @to %>>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="range" class="col-sm-2">بازه: </label>
+          <div class="col-sm-8">
+            <%= select_tag :range, options_for_select(range_options, @range), class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="average" class="col-sm-2">نوع محاسبه: </label>
+          <div class="col-sm-8">
+            <%= select_tag :average, options_for_select(average_options, @average), class: "form-control" %>
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+    <% if @chartData %>
+      <hr>
+      <div class="chart" style="width:800px;padding-right:50px"></div>
+      <p class="lead"></p>
+      <div class="table-wrapper">
+        <table class="table table-bordered" style="direction:ltr;">
+          <thead>
+            <tr class="chartHead"></tr>
+          </thead>
+          <tbody class="chartTable"></tbody>
+        </table>
+      </div>
+      <p class="lead"></p>
+      <div class="center-block" style="width:200px;">
+        <%= link_to t('export_shown_data'), export_shown_data_client_path(@client, from: @from, to: @to, channel: @sensors.collect(&:channel_index), range_selector: @range_selector, average: @average), class: 'btn btn-primary btn-block', target: "_blank" %>
+      </div>
+      <script>
+        window.chart = <%= raw @chartData %>;
+        window.chartLabels = <%= raw @chartLabels.to_json %>;
+        window.sampleTime = <%= @client.sampling_time*@client.samples_count %>;
+      </script>
+    <% end %>
+  </div>
+</div>

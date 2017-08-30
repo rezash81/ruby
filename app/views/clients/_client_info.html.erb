@@ -1,0 +1,50 @@
+  <div class="form-group<%= ' has-error has-feedback' if @client.errors[:description].length > 0 %>">
+    <%= f.label :description, t('description'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_area :description, class: "form-control", style: 'resize:vertical;' %>
+      <% if @client.errors[:description].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @client.errors[:static_ip].length > 0 %>">
+    <%= f.label :static_ip, t('static_ip'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :static_ip, class: "form-control" %>
+      <% if @client.errors[:static_ip].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @client.errors[:model_name].length > 0 %>">
+    <%= f.label :model_name, t('model'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :model_name, class: "form-control" %>
+      <% if @client.errors[:model_name].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @client.errors[:serial_number].length > 0 %>">
+    <%= f.label :serial_number, t('serial'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :serial_number, class: "form-control" %>
+      <% if @client.errors[:serial_number].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @client.errors[:product_date_time].length > 0 %>">
+    <%= f.label :product_date_time, "#{t('date')} ساخت", class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :product_date_time, class: "form-control pcal" %>
+      <% if @client.errors[:product_date_time].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+

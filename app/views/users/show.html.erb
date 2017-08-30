@@ -1,0 +1,25 @@
+<%= link_to "بازگشت", users_path %>
+<h3>اطلاعات <%= @user.username %></h3>
+<hr>
+<dl>
+  <dt><%= t 'username' %></dt>
+  <dd><%= @user.username %></dd>
+  <br>
+  <dt><%= t 'name' %></dt>
+  <dd><%= @user.name %></dd>
+  <br>
+  <dt><%= t 'email' %></dt>
+  <dd><%= @user.email %></dd>
+  <br>
+  <dt><%= t 'user_type' %></dt>
+  <dd><%= user_type_string(@user.user_type) %></dd>
+  <br>
+  <dt>آخرین فعالیت</dt>
+  <dd><%= persian_date @user.last_sign_in_at %></dd>
+  <br>
+</dl>
+<% if can? :edit, @user %>
+<hr>
+<%= link_to t('edit'), edit_user_path(@user), class: 'btn btn-default' %>
+<%= link_to t('delete'), user_path(@user), method: :delete, class: 'btn btn-danger', data: { confirm: t('you_sure') } %>
+<% end %>

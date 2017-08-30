@@ -1,0 +1,9 @@
+<% title "تماس با ما" %>
+<address>
+  <strong><%= t 'company_name' %></strong><br><br>
+  <strong>آدرس دفتر مرکزی :</strong><br>
+  <%= t 'company_address' %><br>
+  <abbr title="شماره تماس">شماره تماس :</abbr> <%= persian_numbers t 'company_tel1' %> ، <%= persian_numbers t 'company_tel2' %><br>
+  <abbr title="فکس">فکس</abbr> <%= persian_numbers t 'company_fax' %><br>
+</address>
+<strong>ایمیل</strong>: <%= mail_to t 'company_mail' %>

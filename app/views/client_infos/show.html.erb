@@ -1,0 +1,23 @@
+<div class="row">
+  <%= link_to "بازگشت", client_infos_path %>
+  <h4>اطلاعات <%= t 'client_info' %></h4>
+  <dl class="dl-horizontal">
+    <dt><%= t 'name' %></dt>
+    <dd><%= @client_info.name  %></dd><br>
+    <dt><%= t 'description' %></dt>
+    <dd><%= @client_info.description  %></dd><br>
+    <dt><%= t 'model' %></dt>
+    <dd><%= @client_info.model_name  %></dd><br>
+    <dt><%= t 'serial' %></dt>
+    <dd><%= @client_info.serial_number  %></dd><br>
+    <dt><%= t 'guid' %></dt>
+    <dd><%= @client_info.guid  %></dd><br>
+    <dt><%= t 'position' %></dt>
+    <dd><%= @client_info.position  %></dd><br>
+    <dt><%= t 'product_date_time' %></dt>
+    <dd><%= @client_info.product_date_time  %></dd><br>
+  </dl>
+  <% if can? :update, @client_info %>
+    <%= link_to t('edit'), edit_client_info_path(@client_info), class: 'btn btn-default' %><br>
+  <% end %>
+</div>

@@ -1,0 +1,141 @@
+<p class="lead"></p>
+<div class="row">
+  <div class="col-sm-6">
+    <% if @client1 %>
+      <h4>اطلاعات <%= @client1.name %></h4>
+      <dl class="dl-horizontal">
+        <dt><%= t 'name' %></dt>
+        <dd><%= @client1.name %></dd>
+        <br>
+        <dt><%= t 'description' %></dt>
+        <dd><%= @client1.client_info ? @client1.client_info.description : '' %></dd>
+        <br>
+        <dt><%= raw(t('sampling_time')) %></dt>
+        <dd><%= @client1.sampling_time %></dd>
+        <br>
+        <dt><%= raw(t('samples_count')) %></dt>
+        <dd><%= @client1.sampling_time * @client1.samples_count %></dd>
+        <br>
+        <dt><%= t 'model' %></dt>
+        <dd><%= @client1.client_info ? @client1.client_info.model_name : '' %></dd>
+        <br>
+        <dt><%= t 'serial' %></dt>
+        <dd><%= @client1.client_info ? @client1.client_info.serial_number : '' %></dd>
+        <br>
+      </dl>
+    <% end %>
+  </div>
+  <div class="col-sm-6">
+    <% if @client2 %>
+      <h4>اطلاعات <%= @client2.name %></h4>
+      <dl class="dl-horizontal">
+        <dt><%= t 'name' %></dt>
+        <dd><%= @client2.name %></dd>
+        <br>
+        <dt><%= t 'description' %></dt>
+        <dd><%= @client2.client_info ? @client2.client_info.description : '' %></dd>
+        <br>
+        <dt><%= raw(t('sampling_time')) %></dt>
+        <dd><%= @client2.sampling_time %></dd>
+        <br>
+        <dt><%= raw(t('samples_count')) %></dt>
+        <dd><%= @client2.sampling_time * @client2.samples_count %></dd>
+        <br>
+        <dt><%= t 'model' %></dt>
+        <dd><%= @client2.client_info ? @client2.client_info.model_name : '' %></dd>
+        <br>
+        <dt><%= t 'serial' %></dt>
+        <dd><%= @client2.client_info ? @client2.client_info.serial_number : '' %></dd>
+        <br>
+      </dl>
+    <% end %>
+  </div>
+  <div class="col-sm-12">
+    <form action="<%= compare_clients_path() %>" method="get" class="row clearfix">
+      <div class="col-sm-10 form-horizontal">
+        <div class="form-group">
+          <label for="channel1" class="col-sm-3"><%= t 'sensor' %> و <%= t 'client' %> ۱: </label>
+          <div class="col-sm-8">
+            <select name="channel1" id="channel1" class="form-control">
+              <% @clients.each do |client| %>
+                <optgroup label="<%= client.name %>">
+                  <% client.sensors.sort_by(&:channel_index).each do |sensor| %>
+                    <option value='<%= "#{client.id},#{sensor.channel_index}" %>' <%= "selected" if client == @client1 and sensor == @sensor1 %>><%= client.name %> - <%= sensor.name %></option>
+                  <% end %>
+                </optgroup>
+              <% end %>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="channel2" class="col-sm-3"><%= t 'sensor' %> و <%= t 'client' %> ۲: </label>
+          <div class="col-sm-8">
+            <select name="channel2" id="channel2" class="form-control">
+              <% @clients.each do |client| %>
+                <optgroup label="<%= client.name %>">
+                  <% client.sensors.sort_by(&:channel_index).each do |sensor| %>
+                    <option value='<%= "#{client.id},#{sensor.channel_index}" %>' <%= "selected" if client == @client2 and sensor == @sensor2 %>><%= client.name %> - <%= sensor.name %></option>
+                  <% end %>
+                </optgroup>
+              <% end %>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="from" class="col-sm-3">از: </label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control pcal" id="from" name="from" <%= "value=#{@from.to_s}" if @from %>>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="to" class="col-sm-3">تا: </label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control pcal" id="to" name="to" <%= "value=#{@to.to_s}" if @to %>>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="range" class="col-sm-3">بازه: </label>
+          <div class="col-sm-4">
+            <%= select_tag :range, options_for_select(range_options, @range), class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="average" class="col-sm-3">نوع محاسبه: </label>
+          <div class="col-sm-4">
+            <%= select_tag :average, options_for_select(average_options, @average), class: "form-control" %>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-default">نمایش</button>
+      </div>
+
+      <!-- <div class="form-horizontal col-sm-6">
+        
+
+      </div> -->
+    </form>
+
+    <% if @chartData %>
+      <hr>
+      <div class="chart" style="width:700px;padding-right:200px"></div>
+      <p class="lead"></p>
+      <div class="table-wrapper">
+        <table class="table table-bordered" style="direction:ltr;">
+          <thead>
+            <tr class="chartHead"></tr>
+          </thead>
+          <tbody class="chartTable"></tbody>
+        </table>
+      </div>
+      <script>
+        window.chart = <%= raw @chartData %>;
+        window.chartLabels = <%= raw @chartLabels.to_json %>;
+      </script>
+    <% end %>
+  </div>
+</div>

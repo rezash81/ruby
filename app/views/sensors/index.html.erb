@@ -1,0 +1,37 @@
+<h3><%= t 'list' %> <%= t 'sensors' %></h3>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th class="text-center"><%= t 'tier' %></th>
+      <th class="text-center"><%= t 'name' %></th>
+      <th class="text-center">شماره‌ی <%= t 'sensor' %></th>
+      <th class="text-center"><%= t 'description' %></th>
+      <% if can? :manage, Sensor %>
+        <th class="text-center"><%= t 'settings' %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% counter = 0 %>
+    <% @sensors.sort_by(&:channel_index).each do |sensor| %>
+      <tr class="text-center">
+        <td><%= persian_numbers counter += 1 %></td>
+        <td><%= link_to sensor.name, sensor %></td>
+        <td><%= sensor.channel_index %></td>
+        <td><%= sensor.description %></td>
+        <% if can? :edit, sensor %>
+          <td>
+            <%= link_to t('edit'), edit_sensor_path(sensor) %>
+            <%= link_to t('delete'), sensor, method: :delete, class: 'text-danger', data: { confirm: t('you_sure') } %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if can? :create, Sensor %>
+  <%= link_to icon('plus-circle', "افزودن #{t 'sensor'} جدید"), new_sensor_path, class: 'btn btn-primary' %>
+<% end %>

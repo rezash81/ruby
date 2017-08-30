@@ -1,0 +1,37 @@
+<h3>لیست مناطق</h3>
+
+<% if can? :create, Position %>
+  <%= link_to raw(icon 'plus-circle', 'افزودن منطقه جدید'), new_position_path, class: 'btn btn-default' %>
+<% end %>
+<p class="lead"></p>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th class="text-center">ردیف</th>
+      <th class="text-center">نام</th>
+      <th class="text-center">عرض جغرفایایی</th>
+      <th class="text-center">طول جغرفایایی</th>
+      <% if can? :manage, Client %>
+        <th class="text-center">تنظیمات</th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% counter = 0 %>
+    <% @positions.each do |position| %>
+      <tr class="text-center">
+        <td><%= persian_numbers counter += 1 %></td>
+        <td><%= link_to position.name, position %></td>
+        <td><%= position.longitude %></td>
+        <td><%= position.latitude %></td>
+        <% if can? :edit, position %>
+          <td>
+            <%= link_to 'ویرایش', edit_position_path(position) %>
+            <%= link_to 'حذف', position, method: :delete, class: 'text-danger', data: { confirm: t('you_sure') } %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

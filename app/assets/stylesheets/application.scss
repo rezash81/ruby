@@ -1,0 +1,202 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+*/
+
+$font-family-sans-serif: "Tahoma", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:      "Tahoma", Georgia, "Times New Roman", Times, serif;
+$font-family-monospace:  "Tahoma", Monaco, Menlo, Consolas, "Courier New", monospace;
+$font-family-base:       $font-family-sans-serif;
+$iconSpritePath: '';
+$iconWhiteSpritePath: '';
+
+@import "bootstrap";
+// @import "sb-admin";
+@import "font-awesome";
+// @import "bootflat";
+@import "bootstrap-rtl";
+@import "js-persian-cal";
+@import "slider";
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding-top: 51px;
+  // background-color: #ccc;
+  background-color: goldenrod;
+}
+
+#main-page {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5Z5kPZw5+LbVT99wqTdx29lMUH4OIG/D86ruKEauBjvH5xy6um/Sfj7ei6UUVk4AIl3MyD4MSSTOFgSwsH/QJWaQ5as7ZcmgBZkzjjU1UrQ74ci1gWBCSGHtuV1H2mhSnO3Wp/3fEV5a+4wz//6qy8JxjZsmxxy5+4w9CDNJY09T072iKG0EnOS0arEYgXqYnXcYHwjTtUNAcMelOd4xpkoqiTYICWFq0JSiPfPDQdnt+4/wuqcXY47QILbgAAAABJRU5ErkJggg==);
+  min-height: 100%;
+  width: 100%;
+  padding-bottom: 80px;
+  .container {
+    width: 800px;
+    min-height: 100%;
+    padding: 50px 100px;
+  }
+}
+
+.sidebar {
+  background: white;
+  width: 200px;
+  float: right;
+  ul li {
+    border-bottom: 1px solid #e7e7e7;
+    &.active {
+      background: #fea;
+    }
+  }
+  .arrow {
+    float: left;
+  }
+}
+
+#page-wrapper {
+  padding: 0 10px 50px;
+  min-height: 568px;
+  background-color: #fff;
+  position: inherit;
+  margin: 0 200px 0 100px;
+  border-right: 1px solid #e7e7e7;
+}
+
+.navbar {
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.navbar-top-links {
+  li {
+    display: inline-block;
+    &:last-child {
+      margin-left: 15px;
+    }
+    a {
+      padding: 15px;
+      min-height: 50px;
+    }
+  }
+  .dropdown-menu li {
+    display: block;
+    &:last-child {
+      margin-left: 0;
+    }
+    a {
+      padding: 3px 20px;
+      min-height: 0;
+      div {
+        white-space: normal;
+      }
+    }
+  }
+}
+
+.fa.arrow:before {
+  content: "\f104";
+}
+
+.active > a > .fa.arrow:before {
+  content: "\f107";
+}
+
+
+.pcalBtn {
+  position: absolute;
+  top: 7px;
+  left: 20px;
+}
+
+.container {
+  background-color: $body-bg;
+  @include box-shadow(0 0 10px gray);
+  &.main-content {
+    min-height: 400px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-top: -20px;
+    border-radius: 0 0 $border-radius-large $border-radius-large;
+  }
+  &.login-page {
+    padding-bottom: 20px;
+    // padding-top: 10px;
+    margin-top: 40px;
+    width: 500px;
+    border-radius: $border-radius-base;
+    // background-color: $body-bg;
+  }
+}
+
+.form-group {
+  position: relative;
+}
+
+.chart-wrapper {
+  width: 100%;
+}
+
+// .chart {
+//   position: absolute;
+//   left: 50px;
+//   right: 50px;
+//   top: 20px;
+//   bottom: 10px;
+//   width: 100%;
+//   height: 400px;
+// }
+
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+  float: right;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.table-wrapper {
+  overflow: auto;
+  max-height: 300px;
+}
+
+colgroup col.success {
+  background-color: #dff0d8;
+}
+colgroup col.error{
+  background-color: #f2dede;
+}
+colgroup col.warning {
+  background-color: #fcf8e3;
+}
+colgroup col.info {
+  background-color: #d9edf7;
+}
+
+th:not(.no-col) {
+  cursor: pointer;
+}
+
+.dygraph-legend {
+  direction: rtl;
+  width: 200px !important;
+}
+
+.fcheckbox {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.dygraph-axis-label-x {
+  font-size: 12px !important;
+}
+
+.dygraph-axis-label-y {
+  font-size: 11px;
+}

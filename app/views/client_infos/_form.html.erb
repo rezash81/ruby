@@ -1,0 +1,75 @@
+<%= form_for @client_info, html: {class: 'form-horizontal'} do |f| %>
+  <div class="form-group<%= ' has-error has-feedback' if @client_info.errors[:name].length > 0 %>">
+    <%= f.label :name, t('name'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :name, class: "form-control" %>
+      <% if @client_info.errors[:name].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @client_info.errors[:position].length > 0 %>">
+    <%= f.label :position, t('position'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :position, class: "form-control" %>
+      <% if @client_info.errors[:position].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @client_info.errors[:guid].length > 0 %>">
+    <%= f.label :guid, t('guid'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :guid, class: "form-control", required: true %>
+      <% if @client_info.errors[:guid].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @client_info.errors[:model_name].length > 0 %>">
+    <%= f.label :model_name, t('model_name'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :model_name, class: "form-control" %>
+      <% if @client_info.errors[:model_name].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @client_info.errors[:serial_number].length > 0 %>">
+    <%= f.label :serial_number, t('serial_number'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :serial_number, class: "form-control" %>
+      <% if @client_info.errors[:serial_number].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @client_info.errors[:product_date_time].length > 0 %>">
+    <%= f.label :product_date_time, t('product_date_time'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :product_date_time, class: "form-control pcal" %>
+      <% if @client_info.errors[:product_date_time].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @client_info.errors[:description].length > 0 %>">
+    <%= f.label :description, t('description'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_area :description, class: "form-control", style: 'resize:vertical;', rows: 6 %>
+      <% if @client_info.errors[:description].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="actions col-sm-offset-2">
+    <%= f.submit t('save'), class: 'btn btn-default' %>
+  </div>
+<% end %>

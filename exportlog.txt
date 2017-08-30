@@ -1,0 +1,50 @@
+passed arguments: (4)
+bin/export_standard
+dbname=uasco user=uasco password=password
+SELECT sample_values.value, sample_values.sample_time, sample_values.sample_ordinal_num, sample_values.channel_index FROM sample_values WHERE sample_values.client_id = 2 AND sample_values.channel_index IN (5, 13, 17, 18, 24, 25, 26, 27, 12) AND (sample_values.sample_time BETWEEN '2014-9-1 19:30:0' AND '2014-11-9 20:29:59') ORDER BY sample_time DESC
+5
+
+size of result: 900
+
+35.105
+
+passed arguments: (4)
+bin/export_standard
+dbname=uasco user=uasco password=password
+SELECT sample_values.value, sample_values.sample_time, sample_values.sample_ordinal_num, sample_values.channel_index FROM sample_values WHERE sample_values.client_id = 2 AND sample_values.channel_index IN (5, 13, 17, 18, 24, 25, 26, 27, 12) AND (sample_values.sample_time BETWEEN '2014-9-1 19:30:0' AND '2014-11-9 20:29:59') ORDER BY sample_time DESC
+5
+
+size of result: 900
+
+11.752
+
+passed arguments: (4)
+bin/export_standard
+dbname=uasco user=uasco password=password
+SELECT sample_values.value, sample_values.sample_time, sample_values.sample_ordinal_num, sample_values.channel_index FROM sample_values WHERE sample_values.client_id = 2 AND sample_values.channel_index IN (5, 13, 17, 18, 24, 25, 26, 27, 12) AND (sample_values.sample_time BETWEEN '2014-9-1 19:30:0' AND '2014-11-9 20:29:59') ORDER BY sample_time DESC
+5
+
+size of result: 900
+
+12.336
+
+passed arguments: (4)
+bin/export_standard
+dbname=uasco user=uasco password=password
+SELECT sample_values.value, sample_values.sample_time, sample_values.sample_ordinal_num, sample_values.channel_index FROM sample_values WHERE sample_values.client_id = 2 AND sample_values.channel_index IN (5, 13, 17, 18, 24, 25, 26, 27, 12) AND (sample_values.sample_time BETWEEN '2014-9-1 19:30:0' AND '2014-11-9 20:29:59') ORDER BY sample_time DESC
+5
+
+size of result: 900
+
+11.41
+
+passed arguments: (4)
+bin/export_standard
+dbname=uasco user=uasco password=password
+SELECT sample_values.value, sample_values.sample_time, sample_values.sample_ordinal_num, sample_values.channel_index FROM sample_values WHERE sample_values.client_id = 2 AND sample_values.channel_index IN (5, 13, 17, 18, 24, 25, 26, 27, 12) AND (sample_values.sample_time BETWEEN '2014-9-1 19:30:0' AND '2014-11-9 20:29:59') ORDER BY sample_time DESC
+5
+
+size of result: 900
+
+18.575
+

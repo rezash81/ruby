@@ -1,0 +1,70 @@
+<%= link_to "بازگشت", client_path(@client) %>
+<h2><%= @client.client_info ? @client.client_info.name : "#{t 'without'} #{t 'client_info'}" %></h2>
+<h3>نمایش آنلاین</h3>
+<br>
+<div class="row">
+  <div class="col-sm-6">
+    <p class="lead"></p>
+    <h4>اطلاعات <%= t 'client' %></h4>
+    <dl class="dl-horizontal">
+      <dt><%= t 'description' %></dt>
+      <dd><%= @client.client_info ? @client.client_info.description : '' %></dd>
+      <dt><%= raw(t('sampling_time')) %></dt>
+      <dd><%= @client.sampling_time %></dd>
+      <dt><%= raw(t('samples_count')) %></dt>
+      <dd><%= @client.sampling_time * @client.samples_count %></dd>
+      <dt><%= t 'model' %></dt>
+      <dd><%= @client.client_info ? @client.client_info.model_name : '' %></dd>
+      <dt><%= t 'serial' %></dt>
+      <dd><%= @client.client_info ? @client.client_info.serial_number : '' %></dd>
+    </dl>
+  </div>
+  <div class="col-sm-6">
+    <p class="lead"></p>
+    <p>
+      <%= t 'last_data' %><br>
+      <strong class="last-value"><%= @first_value ? persian_date(@first_value.sample_time) : 'بدون داده' %></strong>
+    </p>
+    <p class="last-update">
+      آخرین بروزرسانی مجدد :<br>
+      <strong>بارگزاری اولیه</strong>
+    </p>
+    </dl>
+  </div>
+  <div class="col-sm-12">
+    <form method="get" class="row clearfix">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= select_tag :channel, options_from_collection_for_select(@client.sensors.sort_by(&:channel_index), :channel_index, :name, @sensor ? @sensor.channel_index : ''), class: 'form-control' %>
+        </div>
+
+        <button type="submit" class="btn btn-default">نمایش</button>
+      </div>
+    </form>
+    <% if @chartData %>
+      <hr>
+      <div class="chart" style="width:700px;padding-right:200px"></div>
+      <p class="lead"></p>
+      <div class="table-wrapper">
+        <table class="table table-bordered" style="direction:ltr;">
+          <thead>
+            <tr class="chartHead"></tr>
+          </thead>
+          <tbody class="chartTable"></tbody>
+        </table>
+      </div>
+      <p class="lead"></p>
+      <div class="center-block" style="width:200px;">
+        <%= link_to t('export_live_data'), export_live_data_client_path(@client, from: @from, sensor: @sensor.channel_index), class: 'btn btn-primary btn-block', target: "_blank" %>
+      </div>
+      <script>
+        window.chart = <%= raw @chartData %>;
+        window.chartLabels = <%= raw @chartLabels.to_json %>;
+        window.lastValue = <%= @last_value %>;
+        window.sampleTime = <%= @client.sampling_time*@client.samples_count %>;
+        window.refreshUrl = "<%= check_new_client_path(@client) %>";
+        window.channel = <%= @sensor.channel_index %>;
+      </script>
+    <% end %>
+  </div>
+</div>

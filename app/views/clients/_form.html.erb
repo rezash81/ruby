@@ -1,0 +1,93 @@
+<%= form_for @client, html: {class: 'form-horizontal', enctype: "multipart/form-data"} do |f| %>
+  <div class="form-group<%= ' has-error has-feedback' if @client.errors[:static_ip].length > 0 %>">
+    <%= label_tag :static_ip, t('static_ip'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= text_field_tag :static_ip, @client.client_info ? @client.client_info.static_ip : '', class: "form-control" %>
+      <span class="help-block">فرمت آدرس بدون http است (مثال: www.example.com)</span>
+      <% if @client.errors[:static_ip].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @client.errors[:ordinal_num].length > 0 %>">
+    <%= f.label :ordinal_num, t('ordinal_num'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :ordinal_num, class: "form-control", required: true %>
+      <% if @client.errors[:ordinal_num].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @client.errors[:sampling_time].length > 0 %>">
+    <%= f.label :sampling_time, raw(t('sampling_time')), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :sampling_time, class: "form-control" %>
+      <% if @client.errors[:sampling_time].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @client.errors[:samples_count].length > 0 %>">
+    <%= f.label :samples_count, raw(t('samples_count')), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :samples_count, class: "form-control" %>
+      <% if @client.errors[:samples_count].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <br>
+  
+  <div class="form-group">
+    <%= f.label :zipupdate, "جدول کالیبراسیون", class: 'col-sm-2 control-label' %>
+    <% if @client.client_info and @client.client_info.zipupdate %>
+    <div class="col-sm-6">
+      <%= text_field_tag :zipupdate, "فایل کنونی: #{@client.client_info.zipupdate.original_filename}", class: 'form-control', :disabled => true%>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :zipupdate, "انتخاب فایل: ", class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= file_field_tag :zipupdate, class: "form-control"%>
+    </div>
+  </div>
+
+  <br>
+
+  <% if current_user.higher_than? :admin %>
+    <div class="form-group<%= ' has-error has-feedback' if @client.errors[:operator].length > 0 %>">
+      <%= f.label :operator_id, t('operator'), class: 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%= f.select :operator_id, options_from_collection_for_select(User.operators.all, :id, :name, @client.operator_id), {}, {class: "form-control"} %>
+        <% if @client.errors[:operator].length > 0 %>
+        <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group<%= ' has-error has-feedback' if @client.errors[:client_info].length > 0 %>">
+      <%= f.label :client_info_id, t('client_info'), class: 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%= f.select :client_info_id, options_from_collection_for_select(ClientInfo.all, :id, :name, @client.client_info_id), {}, {class: "form-control", required: true} %>
+        <% if @client.errors[:client_info].length > 0 %>
+        <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="actions col-sm-offset-2">
+    <%= f.submit t('save'), class: 'btn btn-default' %>
+  </div>
+<% end %>
+
+<% if not @create_action %>
+<h3><%= t 'edit' %> کانال های ایستگاه</h3>
+<%= link_to "#{t('edit')} #{t 'sensors'}", sensors_client_path(@client), class: 'btn btn-link' %>
+<% end %>

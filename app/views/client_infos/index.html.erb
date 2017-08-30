@@ -1,0 +1,39 @@
+<h3><%= t 'list' %> <%= t 'client_infos' %></h3>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th class="text-center"><%= t 'tier' %></th>
+      <th class="text-center"><%= t 'name' %></th>
+      <th class="text-center"><%= t 'position' %></th>
+      <th class="text-center"><%= t 'description' %></th>
+      <% if can? :manage, ClientInfo %>
+        <th class="text-center"><%= t 'settings' %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% counter = 0 %>
+    <% @client_infos.each do |client_info| %>
+      <tr class="text-center">
+        <td><%= persian_numbers counter += 1 %></td>
+        <td><%= link_to client_info.name, client_info %></td>
+        <td><%= client_info.position %></td>
+        <td><%= client_info.description %></td>
+        <% if can? :update, client_info %>
+          <td>
+            <%= link_to t('edit'), edit_client_info_path(client_info) %>
+            <% if can? :destroy, client_info %>
+              <%= link_to t('delete'), client_info, method: :delete, class: 'text-danger', data: { confirm: t('you_sure') } %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if can? :create, ClientInfo %>
+  <%= link_to icon('plus-circle', "افزودن #{t 'client_info'} جدید"), new_client_info_path, class: 'btn btn-primary' %>
+<% end %>

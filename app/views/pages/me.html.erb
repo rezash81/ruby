@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-12">
+  <br><br>
+  <%= form_tag me_path, method: :post, class: 'form-horizontal' do %>
+    <div class="form-group">
+      <label for="current_password" class="col-sm-2 control-label">پسورد فعلی</label>
+      <div class="col-sm-4">
+        <%= password_field_tag :current_password, nil, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="col-sm-2 control-label">پسورد جدید</label>
+      <div class="col-sm-4">
+        <%= password_field_tag :password, nil, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password_confirm" class="col-sm-2 control-label">تکرار پسورد جدید</label>
+      <div class="col-sm-4">
+        <%= password_field_tag :password_confirm, nil, class: 'form-control' %>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary"><%= t 'submit' %></button>
+  <% end %>
+  </div>
+</div>

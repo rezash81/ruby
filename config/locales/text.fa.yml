@@ -1,0 +1,122 @@
+fa:
+  site_title: UASCO
+  site_name: هواشناس
+  company_name: شرکت سیستم‌های جامع خودکار
+  company_address: تهران ، میدان ولیعصر ، خیابان زرتشت غربی ، پلاک 6 ، واحد 10
+  company_tel1: 88921735
+  company_tel2: 88921736
+  company_fax: 88921461
+  company_mail: info@uasco.ir
+  aboutus: درباره‌ی ما
+  contactus: تماس با ما
+  gallery: گالری
+  products: محصولات
+  management: مدیریت ایستگاه
+  # Plurals
+  clients: ایستگاه‌ها
+  positions: مناطق
+  client_infos: دستگاه‌ها
+  users: کاربرها
+  sensors: کانالها
+  # Singletons
+  client: ایستگاه
+  position: موقعیت
+  client_info: دستگاه
+  user: کاربر
+  sensor: کانال
+  # Global
+  last_data: آخرین داده‌ی دریافتی
+  live: نمایش آنلاین
+  import: ایمپورت
+  export: اکسپورت
+  export_standard: اکسپورت استاندارد
+  export_shown_data: دریافت داده ها در فایل
+  export_live_data: دریافت داده ها در فایل
+  import_usb: ورود از طریق usb
+  archive_data: آرشیو داده ها
+  code: کد
+  unit_code: کد واحد
+  saving_type: نوع ذخیره‌سازی
+  channel_type: نوع کانال
+  hw_port_type: نوع پورت دستگاه
+  hw_port_number: پورت دستگاه
+  hw_port_pin_number: پین پورت دستگاه
+  calculation_type: نوع محاسبه
+  channel_index: شماره‌ی کانال
+  measure_unit: واحد اندازه گیری
+  is_active: فعال
+  model_name: مدل
+  serial_number: سریال
+  product_date_time: تاریخ ساخت
+  guid: GUID
+  operator: مسئول ایستگاه
+  sampling_time: دوره‌ نمونه‌برداری<br>(ثانیه)
+  samples_count: دوره ذخیره‌سازی<br>(بر حسب دوره<br>نمونه برداری)
+  compare: مقایسه
+  user_type: دسترسی کاربر
+  user_profile: ویرایش اطلاعات کاربری
+  logout: خروج
+  login: ورود
+  model: مدل
+  serial: سریال
+  static_ip: سرور ثانویه
+  description: توضیحات
+  list: لیست
+  type: نوع
+  count: تعداد
+  new: جدید
+  all: همه
+  all_x: همه‌ی
+  without: بدون
+  dash: '-'
+  there_is_no: ی وجود ندارد
+  public: عمومی
+  private: خصوصی
+  other: سایر
+  duration: مدت زمان
+  edit: ویرایش
+  table: جدول
+  save: ذخیره
+  delete: حذف
+  tier: ردیف
+  title: عنوان
+  date: تاریخ
+  issuance: صدور
+  state: وضعیت
+  objection: اعتراض
+  average: معدل
+  rank: رتبه
+  weekly: هفتگی
+  program: برنامه
+  empty: خالی
+  submit: ثبت
+  password: رمز عبور
+  password_confirmation: تایید رمز عبور
+  # Attributes
+  name: نام
+  username: نام کاربری
+  settings: تنظیمات
+  email: ایمیل
+  sms: اسمس
+  message: پیام
+  self_phone: شماره تلفن
+  # Questions
+  you_sure: آیا مطمئنید؟
+  delete_user: آیا مایلید این کاربر حذف شود؟
+  delete_report: آیا مایلید این کارنامه حذف شود؟
+  delete_report_course: آیا مایلید این درس حذف شود؟
+  delete_sure: آیا با حذف این مورد موافقید؟
+  # Sentences
+  published_report: این کارنامه برای دانش اموزان و اولیاء قابل مشاهده است
+  unpublished_report: این کارنامه برای دانش اموزان و اولیاء قابل مشاهده نیست
+  # Report Form
+  max_grade: نمرات کارنامه از چند محاسبه شود؟
+  ranking:   رتبه کلاسی و پایه (در دروس و معدل) برای دانش آموزان نمایش داده شود
+  start_date: آزمون های کلاسی از چه تاریخی در نظر گرفته شود؟
+  end_date: تاریخ صدور کارنامه
+  enable_objection: سیستم اعتراض به نمرات کارنامه فعال شود؟
+  objection_limit_start: آخرین مهلت اعتراض به نمرات
+  objection_limit_end: روز از تاریخ صدور کارنامه
+  objection_courses_start: دانش آموز مجاز است به
+  objection_courses_end: اعتراض کند.
+  published: این کارنامه توسط دانش‌آموزان و اولیاء قابل مشاهده باشد؟

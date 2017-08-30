@@ -1,0 +1,48 @@
+passed arguments: (6)
+bin/show_data
+dbname=uasco user=uasco password=password
+SELECT sample_values.value, concat(sample_values.client_id, sample_values.channel_index), sample_values.sample_time FROM sample_values WHERE ( (sample_values.client_id = 2 AND sample_values.channel_index = 12) OR (sample_values.client_id = 2 AND sample_values.channel_index = 13) ) AND (sample_values.sample_time BETWEEN '2014-10-24 4:39:13' AND '2014-10-31 10:22:33') ORDER BY sample_time DESC 
+212 213
+600
+0
+
+size of result: 26
+
+each channel_index:
+channel_index: 212 13
+channel_index: 213 13
+
+155.605
+
+passed arguments: (6)
+bin/show_data
+dbname=uasco user=uasco password=password
+SELECT sample_values.value, concat(sample_values.client_id, sample_values.channel_index), sample_values.sample_time FROM sample_values WHERE ( (sample_values.client_id = 2 AND sample_values.channel_index = 12) OR (sample_values.client_id = 2 AND sample_values.channel_index = 13) ) AND (sample_values.sample_time BETWEEN '2014-10-24 4:39:13' AND '2014-10-31 10:22:33') ORDER BY sample_time DESC 
+212 213
+600
+0
+
+size of result: 26
+
+each channel_index:
+channel_index: 212 13
+channel_index: 213 13
+
+17.913
+
+passed arguments: (6)
+bin/show_data
+dbname=uasco user=uasco password=password
+SELECT sample_values.value, concat(sample_values.client_id, sample_values.channel_index), sample_values.sample_time FROM sample_values WHERE ( (sample_values.client_id = 2 AND sample_values.channel_index = 12) OR (sample_values.client_id = 2 AND sample_values.channel_index = 13) ) AND (sample_values.sample_time BETWEEN '2014-10-24 4:39:13' AND '2014-10-31 10:22:33') ORDER BY sample_time DESC 
+212 213
+600
+0
+
+size of result: 26
+
+each channel_index:
+channel_index: 212 13
+channel_index: 213 13
+
+19.017
+

@@ -1,0 +1,16 @@
+<div class="col-md-12">
+  <h3 class="text-center">بازیابی گذرواژه</h3><hr>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {class: 'form-horizontal', method: :post}) do |f| %>
+    <div class="form-group">
+      <%= f.label :email, "ایمیل" , class: 'col-xs-3 control-label' %>
+      <div class="col-xs-9">
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-5 col-sm-offset-7 col-xs-12">
+        <%= f.submit 'بازیابی', class: 'btn btn-info btn-block' %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,34 @@
+<h3><%= t 'list' %> <%= t 'users' %></h3>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th class="text-center"><%= t 'tier' %></th>
+      <th class="text-center"><%= t 'username' %></th>
+      <% if can? :manage, User %>
+        <th class="text-center"><%= t 'settings' %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% counter = 0 %>
+    <% @users.each do |user| %>
+      <tr class="text-center">
+        <td><%= persian_numbers counter += 1 %></td>
+        <td><%= link_to user.username, user %></td>
+        <% if can? :update, user %>
+          <td>
+            <%= link_to t('edit'), edit_user_path(user) %>
+            <% if can? :destroy, user %>
+              <%= link_to t('delete'), user, method: :delete, class: 'text-danger', data: { confirm: t('you_sure') } %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% if can? :create, User %>
+  <%= link_to icon('plus-circle', "افزودن #{t 'user'} جدید"), new_user_path, class: 'btn btn-primary' %>
+<% end %>

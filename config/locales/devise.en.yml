@@ -1,0 +1,117 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+en:
+  devise:
+    confirmations:
+      confirmed: "Your account was successfully confirmed. You are now signed in."
+      send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions about how to confirm your account in a few minutes."
+    failure:
+      already_authenticated: "You are already signed in."
+      inactive: "Your account was not activated yet."
+      invalid: "Invalid email or password."
+      invalid_token: "Invalid authentication token."
+      locked: "Your account is locked."
+      not_found_in_database: "Invalid email or password."
+      timeout: "Your session expired, please sign in again to continue."
+      unauthenticated: "You need to sign in or sign up before continuing."
+      unconfirmed: "You have to confirm your account before continuing."
+    mailer:
+      confirmation_instructions:
+        subject: "Confirmation instructions"
+      reset_password_instructions:
+        subject: "Reset password instructions"
+      unlock_instructions:
+        subject: "Unlock Instructions"
+    omniauth_callbacks:
+      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      success: "Successfully authenticated from %{kind} account."
+    passwords:
+      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
+      send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
+      updated: "Your password was changed successfully. You are now signed in."
+      updated_not_active: "Your password was changed successfully."
+    registrations:
+      destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
+      signed_up: "Welcome! You have signed up successfully."
+      signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
+      signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
+      signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
+      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
+      updated: "You updated your account successfully."
+    sessions:
+      signed_in: "Signed in successfully."
+      signed_out: "Signed out successfully."
+    unlocks:
+      send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
+      send_paranoid_instructions: "If your account exists, you will receive an email with instructions about how to unlock it in a few minutes."
+      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+  errors:
+    messages:
+      already_confirmed: "was already confirmed, please try signing in"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      expired: "has expired, please request a new one"
+      not_found: "not found"
+      not_locked: "was not locked"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+
+fa:
+  devise:
+    confirmations:
+      confirmed: "حساب کاربری شما با موفقیت تایید شد. شما اکنون وارد شدید."
+      send_instructions: "ایمیلی حاوی اطالاعات و روند تایید‌سازی حساب کاربری برای شما ارسال شد."
+      send_paranoid_instructions: "در صورتی که ایمیلی با محتوای وارد شده در داده‌های ما وجود داشته باشد، ایمیلی حاوی فرآید فعال‌سازی حساب کاربری برای شما ارسال خواهد شد."
+    failure:
+      already_authenticated: "شما قبلا وارد سایت شده‌اید."
+      inactive: "حساب کاربری شما غیرفعال است."
+      invalid: "نام کاربری یا رمز عبور اشتباه است."
+      invalid_token: "کد تصدیق غیر قابل قبول اسا."
+      locked: "حساب کاربری شما قفل شده است."
+      not_found_in_database: "نام کاربری یا رمز عبور اشتباه است."
+      timeout: "دوره‌ی ورود شما به اتمام رسیده است، لطفا دوباره وارد شوید."
+      unauthenticated: "برای ادامه‌ی کار شما می‌بایست ثبت‌نام کنید."
+      unconfirmed: "پیش از ادامه‌ی کار شما می‌بایست حساب کاربری خود را تایید کنید."
+    mailer:
+      confirmation_instructions:
+        subject: "تایید اکانت"
+      reset_password_instructions:
+        subject: "بازیابی گذرواژه"
+      unlock_instructions:
+        subject: "باز کردن حساب کاربری"
+    omniauth_callbacks:
+      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      success: "Successfully authenticated from %{kind} account."
+    passwords:
+      no_token: "شما نمی‌توانید با کد بازیابی گذرواژه به این صفحه دسترسی پیدا کنید. اگر از ایمیل بازیابی گذرواژه به اینجا آمده‌اید لطفا آدرس وارد‌شده در مرورگر را بررسی کنید."
+      send_instructions: "اطالعات و نحوه‌ی بازیابی حساب کاربری ظرف چند دقیقه‌ی آینده برای شما ارسال خواهد شد."
+      send_paranoid_instructions: "در صورتی که ایمیلی با محتوای وارد شده در داده‌های ما وجود داشته باشد، ایمیلی حاوی فرآید بازیابی گذرواژه برای شما ارسال خواهد شد."
+      updated: "گذرواژه شما با موفقیت تغییر پیدا کرد. شما اکنون وارد شدید."
+      updated_not_active: "گذرواژه با موفقیت تغییر پیدا کرد."
+    registrations:
+      destroyed: "خدانگدار! حساب کاربری شما با موفقیت بسته شد. امیدواریم به زودی شما را ببینیم!."
+      signed_up: "خوش آمدید! شما با موفقیت ثبت‌نام کردید."
+      signed_up_but_inactive: "حساب کاربری شما با موفقیت ثبت شد. با اینحال حساب کاربری شما نیازمند تایید توسط مدیران سایت است."
+      signed_up_but_locked: "حساب کاربری شما با موفقیت ثبت شد. با اینحال حساب کاربری شما قفل شده است و اجازه‌ی ورود ندارید."
+      signed_up_but_unconfirmed: "ایمیلی با اطالعات تایید‌سازی حساب کاربری برای شما ارسال شد. لطفا برای فعال‌سازی حساب کاربری خود لینک را در مرورگر خود باز کنید."
+      update_needs_confirmation: "ایمیل شما با موفقیت تغییر کرد، شما می‌بایست ایمیل جدید خود را تایید کنید. لطفا ایمیل خود را بررسی کرده و رو لینک فعال‌سازی کلیک کنید."
+      updated: "حساب کاربری شما با موفقیت تغییر کرد."
+    sessions:
+      signed_in: "خوش آمدید."
+      signed_out: "شما با موفقیت خارج شدید."
+    unlocks:
+      send_instructions: "در چند دقیقه‌ی آینده ایمیلی حاوی اطالعات و فرآید باز کردن حساب کاربری برای شما ارسال خواهد شد."
+      send_paranoid_instructions: "در صورتی که ایمیلی با محتوای وارد شده در داده‌های ما وجود داشته باشد، ایمیلی حاوی فرآید باز کردن حساب کاربری برای شما ارسال خواهد شد."
+      unlocked: "حساب کاربری شما با موفقیت آزاد شد. برای ادامه فعالیت لطفا دوبار وارد شوید."
+  errors:
+    messages:
+      already_confirmed: "قبلا تایید شده است، لطفا وارد شوید"
+      confirmation_period_expired: "می‌بایست در مدت %{period} فعلا شود، لطفا دوبار تلاش کنید"
+      expired: "فاقد اعتبار است. لطفا دوبار تلاش کنید"
+      not_found: "پیدا نشد"
+      not_locked: "قفل نبوده است"
+      not_saved:
+        one: "یک خطا مانع ذخیره‌سازی %{resource} شده اتس:"
+        other: "%{count} خطا مانع ذخیره‌سازی %{resource} شده اتس:"

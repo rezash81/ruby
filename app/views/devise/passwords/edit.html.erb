@@ -1,0 +1,23 @@
+<div class="col-md-12">
+  <h3 class="text-center">تغییر گذرواژه</h3><hr>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {class: 'form-horizontal', method: :put}) do |f| %>
+    <%= f.hidden_field :reset_password_token %>
+    <div class="form-group">
+      <%= f.label :password, "گذرواژه" , class: 'col-xs-3 control-label' %>
+      <div class="col-xs-9">
+        <%= f.password_field :password, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation, "تکرار گذرواژه" , class: 'col-xs-3 control-label' %>
+      <div class="col-xs-9">
+        <%= f.password_field :password_confirmation, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-5 col-sm-offset-7 col-xs-12">
+        <%= f.submit 'ثبت', class: 'btn btn-info btn-block' %>
+      </div>
+    </div>
+  <% end %>
+</div>

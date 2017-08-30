@@ -1,0 +1,75 @@
+<%= form_for @user, html: {class: 'form-horizontal'} do |f| %>
+  <div class="form-group<%= ' has-error has-feedback' if @user.errors[:name].length > 0 %>">
+    <%= f.label :name, t('name'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :name, class: "form-control", required: true %>
+      <% if @user.errors[:name].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @user.errors[:username].length > 0 %>">
+    <%= f.label :username, t('username'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :username, class: "form-control", required: true %>
+      <% if @user.errors[:username].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @user.errors[:email].length > 0 %>">
+    <%= f.label :email, t('email'), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.email_field :email, class: "form-control" %>
+      <% if @user.errors[:email].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <% #if @create_action %>
+    <div class="form-group<%= ' has-error has-feedback' if @user.errors[:user_type].length > 0 %>">
+      <%= f.label :user_type, t('user_type'), class: 'col-sm-2 control-label' %>
+      <div class="col-sm-4">
+        <%= f.select :user_type, options_for_select(user_types(current_user.user_type), @user.user_type), {},class: "form-control" %>
+        <% if @user.errors[:user_type].length > 0 %>
+        <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+        <% end %>
+      </div>
+    </div>
+  <% #end %>
+
+  <div class="form-group<%= ' has-error has-feedback' if @user.errors[:password].length > 0 %>">
+    <%= f.label :password, t('password'), class: 'col-sm-4 col-lg-2 control-label' %>
+    <div class="col-sm-4">
+      <% if @create_action %>
+        <%= f.password_field :password, class: "form-control", required: true %>
+      <% else %>
+        <%= f.password_field :password, class: "form-control" %>
+      <% end %>
+      <% if @user.errors[:password].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group<%= ' has-error has-feedback' if @user.errors[:password_confirmation].length > 0 %>">
+    <%= f.label :password_confirmation, t('password_confirmation'), class: 'col-sm-4 col-lg-2 control-label' %>
+    <div class="col-sm-4">
+      <% if @create_action %>
+        <%= f.password_field :password_confirmation, class: "form-control", required: true %>
+      <% else %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      <% end %>
+      <% if @user.errors[:password_confirmation].length > 0 %>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="actions col-sm-offset-2">
+    <%= f.submit t('save'), class: 'btn btn-default' %>
+  </div>
+<% end %>
